@@ -1,18 +1,4 @@
-import /microtrust.rc
-
-on init
-    export LD_LIBRARY_PATH /system/lib64:/vendor/lib64:/vendor/lib64/hw
-    setprop crypto.ready 1
-
-    mkdir /mnt/vendor 0755 system system
-    mkdir /mnt/vendor/persist 0755 system system
-    mount ext4 /dev/block/by-name/persist /mnt/vendor/persist rw
-
-on fs
-    install_keyring
-
-on post-fs
-    start boot-hal-1-2
+#import /microtrust.rc
 
 on init
     setprop sys.usb.configfs 1
@@ -61,55 +47,6 @@ service mtk.plpath.utils.link /system/bin/mtk_plpath_utils
     oneshot
     seclabel u:r:recovery:s0
 
-
-service keystore_auth /system/bin/keystore_auth
-    oneshot
-    user system
-    group root
-    disabled
-    seclabel u:r:recovery:s0
-
-service vendor.gatekeeper-1-0 /vendor/bin/hw/android.hardware.gatekeeper@1.0-service
-    interface android.hardware.gatekeeper@1.0::IGatekeeper default
-    class hal
-    user system
-    group system
-    disabled
-    seclabel u:r:recovery:s0
-
-service vendor.keymaster-4-1-beanpod /vendor/bin/hw/android.hardware.keymaster@4.1-service.beanpod
-    class early_hal
-    user system
-    group system drmrpc
-    seclabel u:r:recovery:s0
-
-on property:crypto.ready=1
-    start vendor.keymaster-4-1-beanpod
-
-on property:hwservicemanager.ready=true
-    start vendor.keymaster-4-1-beanpod
-    start vendor.gatekeeper-1-0
-
-on property:ro.crypto.state=unsupported
-    stop teei_daemon
-    stop vendor.keymaster-4-1-beanpod
-    stop vendor.gatekeeper-1-0
-
-on property:ro.crypto.state=unencrypted
-    stop teei_daemon
-    stop vendor.keymaster-4-1-beanpod
-    stop vendor.gatekeeper-1-0
-
-on property:twrp.decrypt.done=true
-    stop teei_daemon
-    stop vendor.keymaster-4-1-beanpod
-    stop vendor.gatekeeper-1-0
-
-on property:crypto.ready=0
-    stop teei_daemon
-    stop vendor.keymaster-4-1-beanpod
-    stop vendor.gatekeeper-1-0
-
 on boot
+    start boot-hal-1-2
     start health-hal-2-1
-    setprop sys.usb.config adb
