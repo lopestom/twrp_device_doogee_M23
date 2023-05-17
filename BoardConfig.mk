@@ -165,21 +165,21 @@ BOARD_USES_METADATA_PARTITION := true
 BOARD_ROOT_EXTRA_FOLDERS += metadata
 
 # Crypto
-TW_INCLUDE_CRYPTO := true
-#TW_INCLUDE_CRYPTO := false
-TW_INCLUDE_CRYPTO_FBE := true
+TW_INCLUDE_CRYPTO := false
+#TW_INCLUDE_CRYPTO := true
+#TW_INCLUDE_CRYPTO_FBE := true
 #TW_INCLUDE_FBE := true
-TW_INCLUDE_FBE_METADATA_DECRYPT := true
+#TW_INCLUDE_FBE_METADATA_DECRYPT := true
 # fscrypt policy FBEv2
-TW_USE_FSCRYPT_POLICY := 2
-TW_PREPARE_DATA_MEDIA_EARLY := true
+#TW_USE_FSCRYPT_POLICY := 2
+#TW_PREPARE_DATA_MEDIA_EARLY := true
 
 # Additional binaries & libraries needed for recovery
-TARGET_RECOVERY_DEVICE_MODULES += \
-    libpuresoftkeymasterdevice
+#TARGET_RECOVERY_DEVICE_MODULES += \
+#    libpuresoftkeymasterdevice
 
-TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libpuresoftkeymasterdevice.so
+#TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += \
+#    $(TARGET_OUT_SHARED_LIBRARIES)/libpuresoftkeymasterdevice.so
 
 #TW_CRYPTO_FS_TYPE := "f2fs"
 #TW_CRYPTO_REAL_BLKDEV := "/dev/block/by-name/userdata"
@@ -252,5 +252,5 @@ TARGET_USES_LOGD := true
 TW_EXCLUDE_TWRPAPP := true
 TW_EXCLUDE_APEX := true
 #TW_INCLUDE_PYTHON := false
-#TW_EXCLUDE_ENCRYPTED_BACKUPS := false
+TW_EXCLUDE_ENCRYPTED_BACKUPS := false
 #TW_BACKUP_EXCLUSIONS := /data/fonts/files
