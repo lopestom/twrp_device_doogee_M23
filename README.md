@@ -9,10 +9,11 @@ m105a-dg-m23-2048g64g-fhdp-bom1-k419-S0-cts-eu_DOOGEE-V30-EEA-Android12.0-202302
 ## Status
 - MT6781 - A12
   - Status: booted??
-  - [?] booted
+  - [X] booted
 
    - boot-M23-A12-2023MMDD-hhhh.img => Working?? Not working?
-  - [?] Working
+  - [ ] Working
+  - [X] Issues
 ------------------------------------
 
 Specs: https://www.gsmarena.com/doogee_v30-12123.php
@@ -24,8 +25,9 @@ Specs: https://www.gsmarena.com/doogee_v30-12123.php
 <details><summary>TWRP Pictures - Click to open</summary>
 <p>
 
-![Menu](https://github.com/lopestom/twrp_blackview_BV9200/releases/download/Blackview_BV9200_RU_R08/IMG_20230507_234548a.jpg)
-![Magisk](https://github.com/lopestom/twrp_blackview_BV9200/releases/download/Blackview_BV9200_RU_R08/IMG_20230507_234947a.jpg)
+![Storage](https://github.com/lopestom/twrp_device_doogee_M23/releases/download/Doogee_V30_RU_R10/photo_2023-05-13_20-48-51.jpg)
+![Mount](https://github.com/lopestom/twrp_device_doogee_M23/releases/download/Doogee_V30_RU_R10/photo_2023-05-13_20-48-46.jpg)
+![Screen](https://github.com/lopestom/twrp_device_doogee_M23/releases/download/Doogee_V30_RU_R10/photo_2023-05-14_22-05-38.jpg)
 </p>
 </details>
 
