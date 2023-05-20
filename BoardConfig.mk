@@ -186,6 +186,11 @@ TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += \
 #TW_CRYPTO_MNT_POINT := "/data"
 ##TW_CRYPTO_FS_OPTIONS := "nosuid,nodev,noatime,discard,noauto_da_alloc,data=ordered"
 
+# include below when enabling decryption
+# without these it may stuck on TWRP splash
+TARGET_RECOVERY_DEVICE_MODULES += libion
+RECOVERY_LIBRARY_SOURCE_FILES += $(TARGET_OUT_SHARED_LIBRARIES)/libion.so
+
 # Properties
 TARGET_SYSTEM_PROP := $(DEVICE_PATH)/system.prop
 TARGET_RECOVERY_INITRC := $(DEVICE_PATH)/recovery/root/init.recovery.mt6877.rc
