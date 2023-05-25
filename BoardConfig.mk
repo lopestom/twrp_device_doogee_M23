@@ -174,7 +174,7 @@ TW_HAS_MTP := true
 TW_INCLUDE_NTFS_3G := true
 
 # Maintainer/Version
-TW_DEVICE_VERSION := perilouspike
+TW_DEVICE_VERSION := DOOGEE V30_20230216-R25_Crypt - lopestom
 
 # Set brightness path and level
 TW_MAX_BRIGHTNESS := 1000
