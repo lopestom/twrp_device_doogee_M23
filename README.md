@@ -1,6 +1,6 @@
 # TWRP device tree for Doogee V30 - Dimensity 900 - MT6877 - A12
 
-This device tree have encrypt/decrypt mode activated for test because boot.img has 40MB. 
+This device tree ***not have*** encrypt/decrypt mode activated for test because boot.img has 40MB. 
 The tester only install `boot-M23-A12-2023MMDD-hhhh.img` test file to know if TWRP can start.
 
 ### Firmware version:DOOGEE-V30-EEA-Android12.0-20230216 - m105a-dg-m23-2048g64g-fhdp-bom1-k419-S0-cts-eu - R25
