@@ -16,7 +16,7 @@
 # Device Target Name
 PRODUCT_RELEASE_NAME := M23
 
-# Inherit from coful device
+# Inherit from M23 device
 $(call inherit-product, device/doogee/M23/device.mk)
 
 # Inherit some common TWRP stuff.
