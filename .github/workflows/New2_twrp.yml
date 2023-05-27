@@ -85,14 +85,14 @@ jobs:
        PATH=~/bin:$PATH
        cd twrp
        export ALLOW_MISSING_DEPENDENCIES=true && source build/envsetup.sh &&lunch twrp_M23-eng && mka $TARGET -j$(nproc --all)
-       cp  out/target/product/M23/boot.img    out/target/product/M23/boot-M23-A12-Crypt.img
+       cp  out/target/product/M23/boot.img    out/target/product/M23/boot-M23-A12-Crypt7.img
              
     - name: Release recovery image
       uses: softprops/action-gh-release@v1
       env:
        GITHUB_TOKEN: ${{ secrets.TEST }}
       with:
-       tag_name: Doogee_V30_RU_R10-Crypt
+       tag_name: Doogee_V30_RU_R25-Crypt7
        name: TWRP37x_12
        files: | 
          twrp/out/target/product/M23/boot*.img
