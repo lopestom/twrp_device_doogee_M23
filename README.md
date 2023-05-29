@@ -9,10 +9,12 @@ m105a-dg-m23-2048g64g-fhdp-bom1-k419-S0-cts-eu_DOOGEE-V30-EEA-Android12.0-202302
 ## Status
 - MT6781 - A12
   - Status: booted??
-  - [?] booted
+  - [X] booted
 
    - boot-M23-A12-2023MMDD-hhhh.img => Working?? Not working?
-  - [?] Working
+  - [X] Working
+------------------------------------
+     20230529 => The tester confirm encrypt/decrypt working after 14 files tested.
 ------------------------------------
 
 Specs: https://www.gsmarena.com/doogee_v30-12123.php
