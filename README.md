@@ -26,8 +26,11 @@ Specs: https://www.gsmarena.com/doogee_v30-12123.php
 <details><summary>TWRP Pictures - Click to open</summary>
 <p>
 
-![Menu](https://github.com/lopestom/twrp_blackview_BV9200/releases/download/Blackview_BV9200_RU_R08/IMG_20230507_234548a.jpg)
-![Magisk](https://github.com/lopestom/twrp_blackview_BV9200/releases/download/Blackview_BV9200_RU_R08/IMG_20230507_234947a.jpg)
+![TWRP Logo](https://github.com/lopestom/twrp_device_doogee_M23/releases/download/Doogee_V30_RU_R25-Crypt7/photo_2023-06-01_12-14-28_resized.jpg)
+![Decryption](https://github.com/lopestom/twrp_device_doogee_M23/releases/download/Doogee_V30_RU_R25-Crypt7/photo_2023-06-01_12-14-32_resized.jpg)
+![Decrypted](https://github.com/lopestom/twrp_device_doogee_M23/releases/download/Doogee_V30_RU_R25-Crypt7/photo_2023-06-01_12-14-36_resized.jpg)
+![MicroSD](https://github.com/lopestom/twrp_device_doogee_M23/releases/download/Doogee_V30_RU_R25-Crypt7/photo_2023-06-01_12-14-22_resized.jpg)
+![Internal Storage](https://github.com/lopestom/twrp_device_doogee_M23/releases/download/Doogee_V30_RU_R25-Crypt7/photo_2023-05-29_14-18-47_resized.jpg)
 </p>
 </details>
 
