@@ -14,9 +14,9 @@ on:
 
 env:
   MANIFEST: https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp -b twrp-12.1
-  DEVICE: M23
+  DEVICE: M23H
   DT_LINK: https://github.com/lopestom/twrp_device_doogee_M23
-  DT_PATH: device/doogee/M23
+  DT_PATH: device/doogee/M23H
   TARGET: bootimage
   TZ: Asia/manila
 #  DT_BRANCH: WIP
@@ -73,7 +73,7 @@ jobs:
     - name: Checkout device tree
       uses: actions/checkout@v2
       with:
-       path: twrp/device/doogee/M23
+       path: twrp/device/doogee/M23H
 
     - name: Set Swap Space
       uses: pierotofy/set-swap-space@master
@@ -84,15 +84,15 @@ jobs:
       run: |
        PATH=~/bin:$PATH
        cd twrp
-       export ALLOW_MISSING_DEPENDENCIES=true && source build/envsetup.sh &&lunch twrp_M23-eng && mka $TARGET -j$(nproc --all)
-       cp  out/target/product/M23/boot.img    out/target/product/M23/boot-M23-A12-Crypt7.img
+       export ALLOW_MISSING_DEPENDENCIES=true && source build/envsetup.sh &&lunch twrp_M23H-eng && mka $TARGET -j$(nproc --all)
+       cp  out/target/product/M23H/boot.img    out/target/product/M23H/boot-M23H_V_Max-A12.img
              
     - name: Release recovery image
       uses: softprops/action-gh-release@v1
       env:
        GITHUB_TOKEN: ${{ secrets.TEST }}
       with:
-       tag_name: Doogee_V30_RU_R25-Crypt7
+       tag_name: Doogee_V_Max_R08
        name: TWRP37x_12
        files: | 
-         twrp/out/target/product/M23/boot*.img
+         twrp/out/target/product/M23H/boot*.img
