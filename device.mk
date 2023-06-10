@@ -3,7 +3,7 @@
 # Copyright (C) 2023 The TWRP Open Source Project
 #
 
-LOCAL_PATH := device/doogee/M23
+LOCAL_PATH := device/doogee/M23H
 
 # A/B
 AB_OTA_UPDATER := true
