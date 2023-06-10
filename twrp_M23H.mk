@@ -13,7 +13,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_keys.mk)
 # Inherit some common twrp stuff.
 $(call inherit-product, vendor/twrp/config/common.mk)
 
-# Inherit from M23 device
+# Inherit from M23H device
 $(call inherit-product, device/doogee/M23H/device.mk)
 
 PRODUCT_DEVICE := M23H
