@@ -3,7 +3,7 @@
 # Copyright (C) 2023 The TWRP Open Source Project
 #
 
-DEVICE_PATH := device/doogee/M23
+DEVICE_PATH := device/doogee/M23H
 
 # For building with minimal manifest
 ALLOW_MISSING_DEPENDENCIES := true
@@ -26,7 +26,7 @@ TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := cortex-a55
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := M23,V30
+TARGET_OTA_ASSERT_DEVICE := M23H,V Max
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := k6877v1_64_k419
@@ -119,7 +119,7 @@ TW_SCREEN_BLANK_ON_BOOT := true
 TW_INPUT_BLACKLIST := "hbtp_vm"
 TW_USE_TOOLBOX := true
 TW_USE_MODEL_HARDWARE_ID_FOR_DEVICE_ID := true
-TW_DEVICE_VERSION := DOOGEE V30_20230216-R25_Crypt7 - lopestom
+TW_DEVICE_VERSION := DOOGEE V Max_20230307-R08 - lopestom
 TARGET_USES_MKE2FS := true
 BOARD_HAS_NO_SELECT_BUTTON := true
 
