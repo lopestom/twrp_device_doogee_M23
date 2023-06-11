@@ -7,7 +7,7 @@ on fs
     mkdir /mnt/vendor 0700 root root
     mkdir /mnt/vendor/persist 0700 root root
     mount ext4 /dev/block/by-name/persist /mnt/vendor/persist
-
+    
 on post-fs
     # Support A/B feature for EMMC and UFS boot region
     wait /dev/block/mmcblk0boot0 2
