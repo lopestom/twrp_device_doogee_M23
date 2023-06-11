@@ -29,6 +29,7 @@ Specs: https://www.gsmarena.com/doogee_v_max-12122.php
 ![TWRP Logo](https://github.com/lopestom/twrp_device_doogee_M23/releases/download/Doogee_V30_RU_R25-Crypt7/IMG_20230610_014548_resized-V_Max.jpg)
 ![Decryption](https://github.com/lopestom/twrp_device_doogee_M23/releases/download/Doogee_V30_RU_R25-Crypt7/IMG_20230610_213902-V_Max_resized.jpg)
 ![Decrypted](https://github.com/lopestom/twrp_device_doogee_M23/releases/download/Doogee_V30_RU_R25-Crypt7/IMG_20230610_213836-V_Max_resized.jpg)
+![Backup Info](https://github.com/lopestom/twrp_device_doogee_M23/releases/download/Doogee_V30_RU_R25-Crypt7/IMG_20230610_222102_resized-V_Max.jpg)
 </p>
 </details>
 
