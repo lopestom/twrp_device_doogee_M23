@@ -1,41 +1,39 @@
-# TWRP device tree for Doogee V30 - Dimensity 900 - MT6877 - A12
+# TWRP device tree for Doogee V Max - Dimensity 1080 - MT6877 - A12
 
 This device tree have encrypt/decrypt mode activated for test because boot.img has 40MB. 
-The tester only install `boot-M23-A12-2023MMDD-hhhh.img` test file to know if TWRP can start.
+The tester only install `boot-M23H_V_Max-A12.img` test file to know if TWRP can start.
 
-### Firmware version:DOOGEE-V30-EEA-Android12.0-20230216 - m105a-dg-m23-2048g64g-fhdp-bom1-k419-S0-cts-eu - R25
-m105a-dg-m23-2048g64g-fhdp-bom1-k419-S0-cts-eu_DOOGEE-V30-EEA-Android12.0-20230216_user_20230222232431.tar 
+### Firmware version:DOOGEE-V-Max-EEA-Android12.0-20230307 - m105b-dg-m23h-2048g96g-fhdp-bom3-k419-S0-cts-eu - R08
+m105b-dg-m23h-2048g96g-fhdp-bom3-k419-S0-cts-eu_DOOGEE-V-Max-EEA-Android12.0-20230307_user_20230307220508.tar.gz
 
 ## Status
 - MT6781 - A12
   - Status: booted??
   - [X] booted
 
-   - boot-M23-A12-2023MMDD-hhhh.img => Working?? Not working?
+   - boot-M23H-A12.img => Working?? Not working?
   - [X] Working
 ------------------------------------
-     20230529 => The tester confirm encrypt/decrypt working after 14 files tested.
+     20230608 => The tester confirm encrypt/decrypt working after 05 files tested.
 ------------------------------------
 
-Specs: https://www.gsmarena.com/doogee_v30-12123.php
+Specs: https://www.gsmarena.com/doogee_v_max-12122.php
 
-![Doogee V30](https://fdn2.gsmarena.com/vv/pics/doogee/doogee-v30-2.jpg)
+![Doogee V Max](https://fdn2.gsmarena.com/vv/pics/doogee/doogee-v-max-2.jpg)
 ===================================================================== 
 
 ### TWRP Pictures
 <details><summary>TWRP Pictures - Click to open</summary>
 <p>
 
-![TWRP Logo](https://github.com/lopestom/twrp_device_doogee_M23/releases/download/Doogee_V30_RU_R25-Crypt7/photo_2023-06-01_12-14-28_resized.jpg)
-![Decryption](https://github.com/lopestom/twrp_device_doogee_M23/releases/download/Doogee_V30_RU_R25-Crypt7/photo_2023-06-01_12-14-32_resized.jpg)
-![Decrypted](https://github.com/lopestom/twrp_device_doogee_M23/releases/download/Doogee_V30_RU_R25-Crypt7/photo_2023-06-01_12-14-36_resized.jpg)
-![MicroSD](https://github.com/lopestom/twrp_device_doogee_M23/releases/download/Doogee_V30_RU_R25-Crypt7/photo_2023-06-01_12-14-22_resized.jpg)
-![Internal Storage](https://github.com/lopestom/twrp_device_doogee_M23/releases/download/Doogee_V30_RU_R25-Crypt7/photo_2023-05-29_14-18-47_resized.jpg)
+![TWRP Logo](https://github.com/lopestom/twrp_device_doogee_M23/releases/download/Doogee_V30_RU_R25-Crypt7/IMG_20230610_014548_resized-V_Max.jpg)
+![Decryption](https://github.com/lopestom/twrp_device_doogee_M23/releases/download/Doogee_V30_RU_R25-Crypt7/IMG_20230610_213902-V_Max_resized.jpg)
+![Decrypted](https://github.com/lopestom/twrp_device_doogee_M23/releases/download/Doogee_V30_RU_R25-Crypt7/IMG_20230610_213836-V_Max_resized.jpg)
 </p>
 </details>
 
 ## Big thanks to:
-- [osSSya from 4pda](https://4pda.to/forum/index.php?showuser=1949259) for tests.
+- [GеnЫчЪ from 4pda](https://4pda.to/forum/index.php?showuser=210979) for tests.
 - [TeamWin](https://github.com/TeamWin) for TWRP SC.
 * TWRP version 3.7.0_12 *
 
@@ -46,7 +44,7 @@ Specs: https://www.gsmarena.com/doogee_v30-12123.php
 ```
 export ALLOW_MISSING_DEPENDENCIES=true
 . build/envsetup.sh
-lunch twrp_M23-eng
+lunch twrp_M23H-eng
 mka bootimage
 ```
 
