@@ -1,4 +1,4 @@
-#fstab file by lopestom for lopestom for DOOGEE-V-Max-EEA-Android12.0-20230307 - m105b-dg-m23h-2048g96g-fhdp-bom3-k419-S0-cts-eu - R08 - k6877v1_64_k419
+#fstab file by lopestom for lopestom for DOOGEE-V30T-RU-Android12.0-20230411 - m105d-dg-m23t-2048g96g-fhdp-bom5-k419-S0-cts-ru - R02 - k6877v1_64_k419
 
 # Core Partitions
 /metadata             ext4    /dev/block/by-name/metadata         flags=backup=1;display="metadata"
