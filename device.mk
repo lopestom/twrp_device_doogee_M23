@@ -83,6 +83,9 @@ PRODUCT_PACKAGES += \
     libhealthd.$(TARGET_BOARD_PLATFORM)
 
 # libion & libxml2
+# VNDK-SP libion from vendor - Memory Allocator functions for ion
+# The libxml2 package contains libraries and utilities used for parsing XML files.
+
 TARGET_RECOVERY_DEVICE_MODULES += \
     libion \
     libxml2
