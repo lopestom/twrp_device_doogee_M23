@@ -39,6 +39,9 @@ Specs: https://www.gsmarena.com/doogee_v30-12123.php
 <details><summary>TWRP Pictures - Click to open</summary>
 <p>
 
+![2026-03-19-09-21-08-108_resized](https://github.com/user-attachments/assets/614fa944-4a5b-41cd-80f5-a6cc80bd8fc5)
+![2026-03-19-09-21-28-421_resized](https://github.com/user-attachments/assets/b4f1be71-1376-4126-b421-84685427a238)
+![2026-03-19-09-26-17-149_resized](https://github.com/user-attachments/assets/5a9e9294-6922-4ed6-a637-a74a3e9006e9)
 
 </p>
 </details>
