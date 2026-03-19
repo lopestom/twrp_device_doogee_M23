@@ -5,32 +5,51 @@
 
 LOCAL_PATH := device/doogee/M23
 
+# VNDK
+PRODUCT_TARGET_VNDK_VERSION := 31
+
+# API
+PRODUCT_SHIPPING_API_LEVEL := 31
+
+# Dynamic Partitions
+PRODUCT_USE_DYNAMIC_PARTITIONS := true
+
+# Treble
+BOARD_VNDK_VERSION := current
+
 # A/B
 AB_OTA_UPDATER := true
+
 AB_OTA_PARTITIONS += \
-    system \
+    boot \
+    dtbo \
     vendor \
     product \
-    boot \
+    system \
+    system_ext \
+    odm \
+    vbmeta \
     vbmeta_vendor \
     vbmeta_system
 
 # A/B
 AB_OTA_POSTINSTALL_CONFIG += \
     RUN_POSTINSTALL_system=true \
-    POSTINSTALL_PATH_system=system/bin/otapreopt_script \
+    POSTINSTALL_PATH_system=system/bin/mtk_plpath_utils \
     FILESYSTEM_TYPE_system=ext4 \
     POSTINSTALL_OPTIONAL_system=true
 
 # Virtual A/B
 ENABLE_VIRTUAL_AB := true
-$(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)
 
 # Boot control HAL
 PRODUCT_PACKAGES += \
     android.hardware.boot@1.2-service \
     android.hardware.boot@1.2-mtkimpl \
-    android.hardware.boot@1.2-mtkimpl.recovery
+    android.hardware.boot@1.2-mtkimpl.recovery \
+    android.hardware.boot@1.0-impl-1.2-mtkimpl \
+    libmtk_bsg \
+    libmtk_bsg.recovery
 
 PRODUCT_PACKAGES_DEBUG += \
     bootctrl \
@@ -42,19 +61,21 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     otapreopt_script \
-    cppreopts.sh \
+    checkpoint_gc \
     update_engine \
     update_verifier \
     update_engine_sideload
 
-# VNDK
-PRODUCT_TARGET_VNDK_VERSION := 31
+# MTK PlPath Utils
+PRODUCT_PACKAGES += \
+    mtk_plpath_utils \
+    mtk_plpath_utils.recovery
 
-# API
-PRODUCT_SHIPPING_API_LEVEL := 31
-
-# Dynamic Partitions
-PRODUCT_USE_DYNAMIC_PARTITIONS := true
+# Health HAL
+PRODUCT_PACKAGES += \
+    android.hardware.health@2.1-impl \
+    android.hardware.health@2.1-service \
+    libhealthd.$(TARGET_BOARD_PLATFORM)
 
 # fastbootd
 PRODUCT_PACKAGES += \
@@ -72,20 +93,20 @@ RECOVERY_LIBRARY_SOURCE_FILES += \
     $(TARGET_OUT_SHARED_LIBRARIES)/libkeymaster41.so \
     $(TARGET_OUT_SHARED_LIBRARIES)/libpuresoftkeymasterdevice.so
 
-# MTK PlPath Utils
+# Keymaster
 PRODUCT_PACKAGES += \
-    mtk_plpath_utils.recovery
-
-# Health HAL
+    android.hardware.keymaster@4.0.vendor \
+    android.hardware.keymaster@4.1
+    
+# Gatekeeper
 PRODUCT_PACKAGES += \
-    android.hardware.health@2.1-impl \
-    android.hardware.health@2.1-service \
-    libhealthd.$(TARGET_BOARD_PLATFORM)
+    android.hardware.gatekeeper@1.0.vendor \
+    android.hardware.gatekeeper@1.0-impl \
+    android.hardware.gatekeeper@1.0-service
 
 # libion & libxml2
 # VNDK-SP libion from vendor - Memory Allocator functions for ion - Library for interfacing with the ION driver
 # The libxml2 package contains libraries and utilities used for parsing XML files.
-
 TARGET_RECOVERY_DEVICE_MODULES += \
     libion \
     libxml2
@@ -93,3 +114,9 @@ TARGET_RECOVERY_DEVICE_MODULES += \
 RECOVERY_LIBRARY_SOURCE_FILES += \
     $(TARGET_OUT_SHARED_LIBRARIES)/libion.so \
     $(TARGET_OUT_SHARED_LIBRARIES)/libxml2.so
+
+# Hidl Service
+PRODUCT_ENFORCE_VINTF_MANIFEST := true
+
+# Soong namespaces
+PRODUCT_SOONG_NAMESPACES += $(DEVICE_PATH)

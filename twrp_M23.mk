@@ -7,8 +7,17 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/base.mk)
 
+# Configure virtual_ab_ota.mk
+$(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)
+
 # Installs gsi keys into ramdisk, to boot a developer GSI with verified boot.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_keys.mk)
+
+# Configure emulated_storage.mk
+$(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
+
+# Enable userspace reboot
+$(call inherit-product, $(SRC_TARGET_DIR)/product/userspace_reboot.mk)
 
 # Inherit some common twrp stuff.
 $(call inherit-product, vendor/twrp/config/common.mk)
@@ -21,6 +30,8 @@ PRODUCT_NAME := twrp_M23
 PRODUCT_BRAND := DOOGEE
 PRODUCT_MODEL := V30
 PRODUCT_MANUFACTURER := DOOGEE
+
+PRODUCT_GMS_CLIENTID_BASE := android-doogee
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
     TARGET_DEVICE=M23 \

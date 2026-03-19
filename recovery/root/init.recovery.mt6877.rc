@@ -1,6 +1,8 @@
 import /init.microtrust.rc
 
 on init
+    setprop sys.usb.configfs 1
+    setprop sys.usb.ffs.aio_compat 1
     export LD_LIBRARY_PATH /system/lib64:/vendor/lib64:/vendor/lib64/hw:/system/lib64/hw
 
 on fs
@@ -8,7 +10,17 @@ on fs
     mkdir /mnt/vendor/persist 0700 root root
     mount ext4 /dev/block/by-name/persist /mnt/vendor/persist
     
+# We need vold early for metadata encryption
+on early-fs
+    start vold
+
+on late-fs
+    # Mount RW partitions which need run fsck
+    mount_all /first_stage_ramdisk/fstab.mt6877 --late
+
 on post-fs
+    start boot-hal-1-2
+
     # Support A/B feature for EMMC and UFS boot region
     wait /dev/block/mmcblk0boot0 2
     symlink /dev/block/sda /dev/block/mmcblk0boot0
@@ -35,34 +47,31 @@ on post-fs
     symlink /dev/block/mapper/pl_a /dev/block/platform/bootdevice/by-name/preloader_raw_a
     symlink /dev/block/mapper/pl_b /dev/block/platform/bootdevice/by-name/preloader_raw_b
 
-    start mtk.plpath.utils.link
 
 on property:ro.crypto.state=encrypted && property:ro.crypto.type=file
     install_keyring
+    setprop crypto.ready 1
 
-service mtk.plpath.utils.link /system/bin/mtk_plpath_utils
-    class main
-    user root
-    group root system
-    disabled
-    oneshot
-    seclabel u:r:recovery:s0
-
-service gatekeeper-1-0 /system/bin/android.hardware.gatekeeper@1.0-service
+service gatekeeper-1-0 /vendor/bin/hw/android.hardware.gatekeeper@1.0-service
     interface android.hardware.gatekeeper@1.0::IGatekeeper default
     user root
     group root
+    setenv LD_LIBRARY_PATH /vendor/lib64:/vendor/lib64/hw:/system/lib64:/sbin
     disabled
     seclabel u:r:recovery:s0
 
-service keymaster-4-1 /system/bin/android.hardware.keymaster@4.1-service.beanpod
+service keymaster-4-1 /vendor/bin/hw/android.hardware.keymaster@4.1-service.beanpod
     interface android.hardware.keymaster@4.0::IKeymasterDevice default
     interface android.hardware.keymaster@4.1::IKeymasterDevice default
     user root
     group root drmrpc
+    setenv LD_LIBRARY_PATH /vendor/lib64:/vendor/lib64/hw:/system/lib64:/sbin
     disabled
     oneshot
     seclabel u:r:recovery:s0
+
+on property:crypto.ready=1
+    start keymaster-4-1
 
 on property:vendor.sys.listener.registered=true
     start gatekeeper-1-0
@@ -82,7 +91,18 @@ on property:twrp.all.users.decrypted=true
     stop teei_daemon
     stop keymaster-4-1
     stop gatekeeper-1-0
+
+on property:twrp.decrypt.done=true
+    stop teei_daemon
+    stop keymaster-4-1
+    stop gatekeeper-1-0
+
+on property:crypto.ready=0
+    stop teei_daemon
+    stop keymaster-4-1
+    stop gatekeeper-1-0
+    stop keymaster_attestation-1-1
    
 on boot
-    start boot-hal-1-2
     start health-hal-2-1
+    setprop sys.usb.config adb
